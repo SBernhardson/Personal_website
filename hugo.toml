@@ -1,0 +1,14 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Shane Bernhardson | Sports Science"
+
+[params]
+  name = "Shane Bernhardson"
+  role = "Director of Sports Science - Olympic Sports"
+  university = "Clemson University"
+  credentials = "CSCS"
+  description = "Translating Science into Performance Application"
+  email = "shane.bernhardson@clemson.edu"
+  office = "Allen N. Reeves Athletic Complex"
+  scholar = "scholar.google.com/shanebernhardson"
+  researchgate = "researchgate.net/shanebernhardson"
