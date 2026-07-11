@@ -1,0 +1,17 @@
+{{ define "title" }}{{ .Title }} | Shane Bernhardson{{ end }}
+
+{{ define "main" }}
+<div class="post-header">
+  <a class="post-back" href="/posts/">← Back to Blog</a>
+  <div class="blog-tag">{{ .Params.category }}</div>
+  <h1 class="post-title">{{ .Title }}</h1>
+  <div class="post-meta">
+    <span>{{ .Date.Format "January 2, 2006" }}</span>
+    <span>·</span>
+    <span>{{ .ReadingTime }} min read</span>
+  </div>
+</div>
+<div class="post-body">
+  {{ .Content }}
+</div>
+{{ end }}

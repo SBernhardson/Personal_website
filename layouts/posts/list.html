@@ -1,0 +1,26 @@
+{{ define "title" }}Blog | Shane Bernhardson{{ end }}
+
+{{ define "main" }}
+<div class="blog-header">
+  <div class="section-label">// Research &amp; Insights</div>
+  <div class="section-title" style="margin-bottom:0">Latest Articles</div>
+</div>
+<div class="blog-listing">
+  <div class="blog-grid">
+    {{ range .Pages }}
+    <a class="blog-card" href="{{ .RelPermalink }}">
+      <div class="blog-card-img">{{ .Params.icon | default "📝" }}</div>
+      <div class="blog-card-body">
+        <div class="blog-tag">{{ .Params.category }}</div>
+        <div class="blog-card-title">{{ .Title }}</div>
+        <div class="blog-card-excerpt">{{ .Params.excerpt }}</div>
+        <div class="blog-card-footer">
+          <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+          <span class="blog-read-more">Read →</span>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

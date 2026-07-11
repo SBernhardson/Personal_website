@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+{{ partial "nav.html" . }}
+
+<main>
+  {{ block "main" . }}{{ end }}
+</main>
+
+<script>
+  // Netlify Identity redirect
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+
+  // Contact form
+  function submitForm() {
+    const fields = ['fname','lname','email','subject','message'];
+    const allFilled = fields.every(f => {
+      const el = document.getElementById(f);
+      return el && el.value.trim() !== '';
+    });
+    if (!allFilled) { alert('Please fill in all fields before sending.'); return; }
+    document.getElementById('success-msg').style.display = 'block';
+    fields.forEach(f => { const el = document.getElementById(f); if(el) el.value = ''; });
+    setTimeout(() => {
+      const msg = document.getElementById('success-msg');
+      if (msg) msg.style.display = 'none';
+    }, 5000);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{{ define "title" }}Shane Bernhardson | Sports Science{{ end }}
+
+{{ define "main" }}
+<!-- HERO -->
+<div class="home-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Sports Science &amp; Human Performance</div>
+    <div class="hero-name">SHANE<br><span>BERNHARDSON</span></div>
+    <p class="hero-desc">{{ .Site.Params.description }}</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="/about/">Learn More</a>
+      <a class="btn-outline" href="/contact/">Get In Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- RECENT POSTS -->
+<div class="section">
+  <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:48px; flex-wrap:wrap; gap:16px;">
+    <div>
+      <div class="section-label">// Latest Writing</div>
+      <div class="section-title" style="margin-bottom:0">Recent Posts</div>
+    </div>
+    <a class="btn-outline" style="white-space:nowrap" href="/posts/">View All →</a>
+  </div>
+  <div class="blog-grid">
+    {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+    <a class="blog-card" href="{{ .RelPermalink }}">
+      <div class="blog-card-img">{{ .Params.icon | default "📝" }}</div>
+      <div class="blog-card-body">
+        <div class="blog-tag">{{ .Params.category }}</div>
+        <div class="blog-card-title">{{ .Title }}</div>
+        <div class="blog-card-excerpt">{{ .Params.excerpt }}</div>
+        <div class="blog-card-footer">
+          <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+          <span class="blog-read-more">Read →</span>
+        </div>
+      </div>
+    </a>
+    {{ end }}
+    {{/* Cards appear here automatically as you publish posts via /admin */}}
+  </div>
+</div>
+{{ end }}
