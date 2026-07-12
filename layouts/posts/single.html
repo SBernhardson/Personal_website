@@ -11,6 +11,11 @@
     <span>{{ .ReadingTime }} min read</span>
   </div>
 </div>
+{{ with .Params.image }}
+<div class="post-header-img">
+  <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+</div>
+{{ end }}
 <div class="post-body">
   {{ .Content }}
 </div>

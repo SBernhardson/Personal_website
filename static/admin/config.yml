@@ -16,6 +16,7 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Category", name: "category", widget: "select", options: ["Physiology", "Strength Science", "Recovery", "Tech & Analytics", "Nutrition", "Psychology", "General"] }
       - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Short summary shown on blog cards (1-2 sentences)" }
-      - { label: "Emoji Icon", name: "icon", widget: "string", default: "📝", hint: "Single emoji used as the post thumbnail" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Header Image", name: "image", widget: "image", required: false, hint: "Optional photo used as the post thumbnail/header. If left blank, the Emoji Icon below is used instead." }
+      - { label: "Emoji Icon", name: "icon", widget: "string", default: "📝", required: false, hint: "Used as the post thumbnail when no Header Image is set" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Use the image button in the toolbar to add photos anywhere in the post" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }

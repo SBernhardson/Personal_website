@@ -8,8 +8,15 @@
 <div class="blog-listing">
   <div class="blog-grid">
     {{ range .Pages }}
+    {{ $post := . }}
     <a class="blog-card" href="{{ .RelPermalink }}">
-      <div class="blog-card-img">{{ .Params.icon | default "📝" }}</div>
+      <div class="blog-card-img">
+        {{ with $post.Params.image }}
+          <img src="{{ . | relURL }}" alt="{{ $post.Title }}" loading="lazy">
+        {{ else }}
+          {{ $post.Params.icon | default "📝" }}
+        {{ end }}
+      </div>
       <div class="blog-card-body">
         <div class="blog-tag">{{ .Params.category }}</div>
         <div class="blog-card-title">{{ .Title }}</div>
