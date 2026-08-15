@@ -11,6 +11,7 @@ collections:
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    filter: { field: "type", value: "post" }
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
@@ -20,3 +21,4 @@ collections:
       - { label: "Emoji Icon", name: "icon", widget: "string", default: "📝", required: false, hint: "Used as the post thumbnail when no Header Image is set" }
       - { label: "Body", name: "body", widget: "markdown", hint: "Use the image button in the toolbar to add photos anywhere in the post" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Type", name: "type", widget: "hidden", default: "post" }
